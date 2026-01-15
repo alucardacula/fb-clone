@@ -27,9 +27,10 @@ app.use(
 
 //route
 app.use("/api/v1", routes);
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.use(express.static("public"));
+
 app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  res.sendFile(path.resolve("public/index.html"));
 });
 
 app.listen(PORT, () => {
